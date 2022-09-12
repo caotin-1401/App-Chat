@@ -78,6 +78,7 @@ uploadTask.on(
                     <img src={Add} alt="" />
                     <span>Add an avatar</span>
                 </label>
+                tét
                 <button>Sign Up</button>
                 {err && <span>Something went wrong</span>}
             </form>
