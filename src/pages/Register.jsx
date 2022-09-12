@@ -11,11 +11,12 @@ import {
   getDownloadURL 
 } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
-
+import {useNavigate,Link} from "react-router-dom"
 
 
 const Register = () => {
     const [err, setErr] = useState(false);
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +53,8 @@ uploadTask.on(
         photoURL: downloadURL,
       });
 
-      
+      await setDoc(doc(db, "userChats", res.user.uid), {});
+      navigate("/")
     });
   }
 );
@@ -78,11 +80,11 @@ uploadTask.on(
                     <img src={Add} alt="" />
                     <span>Add an avatar</span>
                 </label>
-                tét
+                
                 <button>Sign Up</button>
                 {err && <span>Something went wrong</span>}
             </form>
-            <p> You do have an account? Login</p>
+            <p> You do have an account? <Link to="/login">Login</Link></p>
         </div>
     </div>
   )

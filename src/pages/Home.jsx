@@ -6,7 +6,6 @@ const Home = () => {
     <div className="home">
       <div className="container">
         <Sidebar/>
-        asjdk
         <Chat/>
       </div>
     </div>
